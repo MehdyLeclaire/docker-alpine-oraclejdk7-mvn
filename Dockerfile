@@ -1,8 +1,9 @@
 FROM caarlos0/alpine-oraclejdk7:latest
-
+ARG CLOUD_SDK_VERSION=157.0.0
+ARG SHA256SUM=95b98fc696f38cd8b219b4ee9828737081f2b5b3bd07a3879b7b2a6a5349a73f
+ENV PATH /google-cloud-sdk/bin:$PATH
 ENV MAVEN_VERSION="3.2.5" \
-    M2_HOME=/root/.m2
-
+    M2_HOME=/root/.m2/
 RUN apk add --update wget && \
   cd /tmp && \
   wget "http://ftp.unicamp.br/pub/apache/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" && \
